@@ -1,0 +1,55 @@
+form{
+  display: flex;
+  flex-flow: row wrap;
+  color: white;
+  background-color: rgb(65, 65, 65);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.28);
+  font-family: monospace;
+  margin-top: 1rem;
+
+  & input:not(input[type=submit]){
+    font-size: 1.4rem;
+    border: none;
+    outline: none;
+    border-radius: 0.2rem;
+    background-color: rgb(218, 218, 218);
+    min-width: 50ch;
+  }
+  & label{
+    font-size: 1.1rem;
+  }
+  & input[type=submit]{
+    background-color: rgb(27, 27, 27);
+    border: none;
+    outline: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.4rem;
+    cursor: pointer;
+  }
+  & input[type=submit]:hover{
+    background-color: rgb(36, 36, 36);
+  }
+
+  & .Form__field{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+  
+  & .Form__title{
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+
+  & .Form__input__error{
+    border: 1px solid red;
+  }
+  
+}
