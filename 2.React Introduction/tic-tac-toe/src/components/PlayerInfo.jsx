@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function PlayerInfo({playerName, playerSymbol}) {
+function PlayerInfo({isActive, playerName, playerSymbol}) {
   const [ name, setName ] = useState(playerName);
   const [ inputOpen, setInputOpen ] = useState(false);
 
@@ -10,12 +10,13 @@ function PlayerInfo({playerName, playerSymbol}) {
   function handleChange(e){
     setName(e.target.value);
   }
+  
 
-  let playerNameField = <input onChange={handleChange} value={name} type='text' placeholder='Player 1' required />;
+  let playerNameField = <input onChange={handleChange} value={name} type='text' required />;
   if(!inputOpen)playerNameField = <span className="player-name">{name}</span>;
 
   return (
-    <li>
+    <li className={isActive? 'active' : undefined}>
       <span className="player">
         {playerNameField}
         <span className="player-symbol">{playerSymbol}</span>
