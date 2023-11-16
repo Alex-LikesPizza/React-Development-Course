@@ -1,0 +1,52 @@
+.form__container{
+  margin-top: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  font-family: sans-serif;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(237, 237, 237);
+  padding: 0.5rem 1rem 1rem 1rem;
+  box-shadow: 0.3rem 0.3rem 0.2rem rgb(176, 176, 176);
+  border-radius: 0.4rem;
+
+  & h2{
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  & label{
+    font-size: 1rem;
+  }
+  & input[type=text],
+  & input[type=email],
+  & input[type=password] {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    border: 0.1rem solid rgb(84, 84, 84);
+    outline: none;
+    border-radius: 0.3rem;
+  }
+  & input[type=submit]{
+    font-size: 1.4rem;
+    width: fit-content;
+    padding: 0.6rem 2rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    background-color: rgb(34, 34, 160);
+    transition: 0.2s;
+    color: white;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  & input[type=submit]:hover{
+    background-color: rgb(21, 21, 92);
+  }
+}
+
+.form__input-invalid{
+  border-color: red;
+}

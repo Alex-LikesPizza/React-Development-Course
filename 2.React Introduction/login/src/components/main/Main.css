@@ -1,0 +1,16 @@
+.main__container{
+  font-family: sans-serif;
+  background-color: rgb(240, 240, 240);
+  max-width: 20rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgb(125, 125, 125);
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 0 4rem;
+  margin-top: 1rem;
+}

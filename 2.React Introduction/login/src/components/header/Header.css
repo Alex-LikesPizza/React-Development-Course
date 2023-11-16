@@ -1,0 +1,43 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: rgb(26, 26, 129);
+  color: white;
+
+  &>.Header__Title{
+    font-family: monospace;
+    font-size: 2.4rem;
+  }
+  &>ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    align-self: center;
+
+    & li{
+      cursor: pointer;
+
+      & button{
+        font-size: 1.2rem;
+        background-color: rgb(255, 162, 0);
+        border: none;
+        outline: none;
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 100rem;
+        cursor: pointer;
+      }
+      & button:hover{
+        background-color: rgb(226, 143, 0);
+      }
+    }
+    & li:hover{
+      color: rgb(220, 223, 255);
+    }
+  }
+}
+
