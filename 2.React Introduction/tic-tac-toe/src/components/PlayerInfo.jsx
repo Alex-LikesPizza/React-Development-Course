@@ -1,10 +1,13 @@
 import { useState } from 'react';
 
-function PlayerInfo({isActive, playerName, playerSymbol}) {
+function PlayerInfo({isActive, playerName, playerSymbol, handlePlayerNameChange}) {
   const [ name, setName ] = useState(playerName);
   const [ inputOpen, setInputOpen ] = useState(false);
 
   function handleClick() {
+    if(inputOpen){
+      handlePlayerNameChange(playerSymbol, name);
+    }
     setInputOpen(inputOpen => !inputOpen);
   }
   function handleChange(e){
