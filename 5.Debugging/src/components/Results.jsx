@@ -4,10 +4,14 @@ import { calculateInvestmentResults, formatter } from '../util/investment.js';
 export default function Results({ input }) {
   const results = [];
   calculateInvestmentResults(input, results);
+  if(results.length === 0)
+    return <p className='center'>Invalid Input</p> // Fixed: Trying to access an empty array.
+    
   const initialInvestment =
     results[0].valueEndOfYear -
     results[0].interest -
     results[0].annualInvestment;
+
 
   return (
     <table id="result">
