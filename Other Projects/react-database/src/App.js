@@ -3,51 +3,41 @@ import React, { useState } from "react";
 import JokeList from "./components/JokeList";
 import AddJoke from "./components/AddJoke";
 import "./App.css";
+import useHttp from "./components/hooks/useHttp";
 
 function App() {
 
   const [jokes, setJokes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  
+  function manageData(data){
+    const loadedJokes = [];
+    for(const key in data){
+      loadedJokes.push({id: key, ...data[key]})
+    };
+    setJokes(loadedJokes);
+  }
+  
+  const { isLoading, error, sendRequest:fetchJokesRequest } = useHttp();
 
-  async function fetchJokesHandler() {
-    setError(null);
-    setIsLoading(true);
-    try {
-      const response = await fetch("https://reactplusfirebase-466c7-default-rtdb.europe-west1.firebasedatabase.app/jokes.json");
-      if (!response.ok) {
-        throw new Error('Something went wrong.');
-      }
-      const data = await response.json();
-      
-      const jokes = [];
+  function fetchJokesHandler() {
+    fetchJokesRequest({
+      endpoint: "https://reactplusfirebase-466c7-default-rtdb.europe-west1.firebasedatabase.app/jokes.json",
 
-      for(const key in data){
-        const joke = {id: key, ...data[key]}
-        jokes.push(joke);
-      }
-      
-      setJokes(jokes);
-
-    } catch (e) {
-      setError(e.message);
-    }
-    setIsLoading(false);
+    },
+    manageData
+    );
   }
 
-  async function addJokeHandler(joke){
-    const response = await fetch("https://reactplusfirebase-466c7-default-rtdb.europe-west1.firebasedatabase.app/jokes.json",
-      {
-        method: "POST",
-        body: JSON.stringify(joke),
-        headers: {
-          'Content-Type': "application/json"
-        }
-      }
-    );
-    const data = await response.json();
+  const { isLoadingOnAdd, errorOnAdd, sendRequest:addJokeRequest } = useHttp();
 
-
+  function addJokeHandler(joke){
+    addJokeRequest({
+      endpoint: "https://reactplusfirebase-466c7-default-rtdb.europe-west1.firebasedatabase.app/jokes.json",
+      method: "POST",
+      body:joke
+    }, (data) => {
+      console.log(data);
+    });
   }
 
   return (
