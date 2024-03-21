@@ -14,5 +14,5 @@ const mainSlice = createSlice({
 });
 
 
-const mainActions = mainSlice.actions
-export default mainActions;
+export const mainActions = mainSlice.actions
+export default mainSlice;

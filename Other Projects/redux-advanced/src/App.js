@@ -6,14 +6,13 @@ import Products from './compoents/Shop/Products';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const isCartVisible = useSelector(state => state.isCartVisible);
+  const isCartVisible = useSelector(state => state.main.isCartVisible);
 
   return (
     <div>
       <Header/>
       {isCartVisible && <Cart />}
-      <Cart />
-      <Products/>
+      <Products />
     </div>
   );
 }

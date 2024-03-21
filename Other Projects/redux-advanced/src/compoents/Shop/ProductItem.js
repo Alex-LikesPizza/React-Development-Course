@@ -1,6 +1,20 @@
+import { useDispatch } from 'react-redux';
 import styles from './ProductItem.module.css'
+import { cartActions } from '../Store/cart-slice';
 const ProductItem = (props)=>{
+    const dispatchAction = useDispatch();
     const {id, title, price, description} = props;
+    const addItemCart = () => {
+        dispatchAction(cartActions.addItem({
+            id,
+            title,
+            price,
+        })
+        );
+    };
+    const removeItemCart = () => {
+        dispatchAction(cartActions.removeItem(id));
+    }
     return(
         <li>
             <header className={styles.item}>
@@ -10,7 +24,7 @@ const ProductItem = (props)=>{
             
             
             <div className={styles.actions}>
-                <button>Add</button>
+                <button onClick={addItemCart}>Add</button>
             </div>
             </header>
         </li>
