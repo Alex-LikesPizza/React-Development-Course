@@ -1,10 +1,18 @@
+import { useState } from 'react';
 import './App.css';
+
+import FeedbackList from './components/FeedbackList';
 import FormTest from './components/form';
 
 function App() {
+  const [ feedbacks, setFeedbacks ] = useState([]);
+  console.log(feedbacks);
+
+
   return (
     <div>
-      <FormTest />
+      <FormTest setFeedbacks={setFeedbacks} />
+      <FeedbackList feedbackList={feedbacks} />
     </div>
     // <div data-testid="container">
     //   <h1>Test Website</h1>

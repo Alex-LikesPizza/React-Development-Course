@@ -1,0 +1,12 @@
+.theme-light{
+  color: black;
+  background-color: white;
+}
+.theme-dark{
+  color: white;
+  background-color: black;
+}
+.container{
+  width: 100vW;
+  height: 100vh;
+}
