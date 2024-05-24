@@ -12,6 +12,7 @@ function App() {
     <div>
       <Header />
 
+
       <ul className='articles'>
         <li>
           <Link to="/article/a1">Article 1</Link>
